@@ -1,23 +1,38 @@
-<div fxLayout="row" fxLayoutAlign="space-between stretch" *ngFor="let row of rows">
-
-    <mat-card *ngFor="let column of columns">
-      <mat-card-header>
-        <mat-card-title>({{column}}, {{row}})</mat-card-title>
-        <mat-card-subtitle>My Subtitle</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        {{ myString }}
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button (click)="onChange('Foo')" color="primary">
-          Foo
-        </button>
-        <button mat-raised-button (click)="onChange('Bar')" color="accent">
-          Bar
-        </button>
-        <button mat-raised-button (click)="onChange('Baz')" color="warn">
-          Baz
-        </button>
-      </mat-card-actions>
-    </mat-card>
+<div
+  fxLayout="row"
+  fxLayoutAlign="space-between stretch"
+  *ngFor="let row of cards"
+>
+  <mat-card *ngFor="let card of row">
+    <mat-card-header>
+      <mat-card-title>{{ card.title }}</mat-card-title>
+      <mat-card-subtitle>({{ card.subtitle }})</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{ card.content }}
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        (click)="onChange('Foo ', card)"
+        color="primary"
+      >
+        Foo
+      </button>
+      <button
+        mat-raised-button
+        (click)="onChange('Bar ', card)"
+        color="accent"
+      >
+        Bar
+      </button>
+      <button
+        mat-raised-button
+        (click)="onChange('Baz ', card)"
+        color="warn"
+      >
+        Baz
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>
